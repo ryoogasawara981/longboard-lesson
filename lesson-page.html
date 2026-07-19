@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ロングボードレッスン | 東京</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;font-size:15px;line-height:1.6}
+.wrap{max-width:560px;margin:0 auto;padding:1.25rem}
+.hero{text-align:center;padding:1.5rem 0 1rem}
+.hero h1{font-size:26px;font-weight:600;letter-spacing:-0.5px}
+.hero p{font-size:14px;color:#888780;margin-top:6px}
+.hero .place{font-size:13px;color:#5F5E5A;margin-top:10px;display:inline-flex;align-items:center;gap:4px}
+.section-h{font-size:14px;font-weight:600;color:#5F5E5A;margin:1.5rem 0 0.75rem;display:flex;align-items:center;gap:6px}
+.card{background:#fff;border:0.5px solid #dddbd0;border-radius:16px;padding:1.25rem;margin-bottom:14px;transition:transform .1s}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.i-beg{background:#E6F1FB;color:#185FA5}
+.i-elm{background:#EAF3DE;color:#3B6D11}
+.i-int{background:#FAEEDA;color:#854F0B}
+.i-prv{background:#EEEDFE;color:#534AB7}
+.card-title{font-size:17px;font-weight:600}
+.card-sub{font-size:12px;color:#888780}
+.card-day{margin-left:auto;font-size:12px;font-weight:500;padding:4px 10px;border-radius:8px;white-space:nowrap}
+.d-beg{background:#E6F1FB;color:#185FA5}
+.d-elm{background:#EAF3DE;color:#3B6D11}
+.d-int{background:#FAEEDA;color:#854F0B}
+.d-prv{background:#EEEDFE;color:#534AB7}
+.card-desc{font-size:14px;color:#444441;margin-bottom:10px}
+.card-for{font-size:13px;color:#5F5E5A;background:#f5f4f0;border-radius:8px;padding:8px 10px;margin-bottom:12px}
+.card-for b{color:#1a1a18;font-weight:500}
+.level-bar{display:flex;gap:3px;margin-bottom:12px}
+.level-dot{height:4px;flex:1;border-radius:2px;background:#e5e3db}
+.level-dot.on-beg{background:#378ADD}
+.level-dot.on-elm{background:#639922}
+.level-dot.on-int{background:#EF9F27}
+.btn{display:block;width:100%;text-align:center;text-decoration:none;padding:12px;border-radius:10px;font-weight:600;font-size:15px;border:none;cursor:pointer}
+.btn-beg{background:#378ADD;color:#fff}
+.btn-elm{background:#639922;color:#fff}
+.btn-int{background:#EF9F27;color:#412402}
+.btn-prv{background:#534AB7;color:#fff}
+.btn:active{opacity:.85}
+.cal{background:#fff;border:0.5px solid #dddbd0;border-radius:16px;padding:1.25rem;margin-bottom:14px}
+.cal-month{text-align:center;font-size:15px;font-weight:600;margin-bottom:12px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-dow{text-align:center;font-size:11px;color:#888780;padding:4px 0}
+.cal-day{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:13px;border-radius:8px;position:relative}
+.cal-day.sun{color:#c0392b}
+.cal-day.has-lesson{font-weight:600}
+.cal-dot{width:5px;height:5px;border-radius:50%;margin-top:2px}
+.cal-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;justify-content:center}
+.leg{display:flex;align-items:center;gap:4px;font-size:11px;color:#5F5E5A}
+.leg-dot{width:8px;height:8px;border-radius:50%}
+.foot{text-align:center;font-size:12px;color:#888780;padding:1.5rem 0 0.5rem;line-height:1.8}
+.foot a{color:#534AB7;text-decoration:none}
+.info-note{background:#FAEEDA;color:#633806;border-radius:10px;padding:10px 12px;font-size:13px;margin-bottom:14px;display:flex;gap:6px;align-items:flex-start}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <h1>Longboard Lesson</h1>
+  </div>
+
+  <div class="section-h"><i class="ti ti-list-check"></i> クラスを選ぶ</div>
+
+  <!-- 完全初心者 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="icon i-beg"><i class="ti ti-seeding"></i></div>
+      <div>
+        <div class="card-title">完全初心者講習</div>
+        <div class="card-sub">Beginners Class</div>
+      </div>
+      <span class="card-day d-beg">第3日曜</span>
+    </div>
+    <div class="level-bar"><div class="level-dot on-beg"></div><div class="level-dot"></div><div class="level-dot"></div></div>
+    <div class="card-desc">初めてロングボードに乗る方向け。ボードに立つところから、安全に基礎を体験します。</div>
+    <div class="card-for"><b>こんな人に</b>：ロンスケ未経験 / 何から始めるか分からない</div>
+    <a class="btn btn-beg" href="https://docs.google.com/forms/d/e/1FAIpQLScxhPl0Ini0NqwRPfx5xiJr11xMvDqVHcW3ddcL7qpzRXvA-g/viewform" target="_blank">このクラスに申し込む</a>
+  </div>
+
+  <!-- 初級 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="icon i-elm"><i class="ti ti-plant"></i></div>
+      <div>
+        <div class="card-title">初級レッスン</div>
+        <div class="card-sub">Elementary Class</div>
+      </div>
+      <span class="card-day d-elm">第2日曜</span>
+    </div>
+    <div class="level-bar"><div class="level-dot on-elm"></div><div class="level-dot on-elm"></div><div class="level-dot"></div></div>
+    <div class="card-desc">完全初心者講習を卒業した方向け。基礎のステップとカービングをしっかり固めます。</div>
+    <div class="card-for"><b>こんな人に</b>：一度講習を受けた / 基礎を固めたい</div>
+    <a class="btn btn-elm" href="https://docs.google.com/forms/d/e/1FAIpQLSfTk0iIlwJO3mpL4Fmbzh5ZRT5LtSjHlb9oMnw2SApphbfIrQ/viewform" target="_blank">このクラスに申し込む</a>
+  </div>
+
+  <!-- 中級 -->
+  <div class="card">
+    <div class="card-head">
+      <div class="icon i-int"><i class="ti ti-tree"></i></div>
+      <div>
+        <div class="card-title">中級レッスン</div>
+        <div class="card-sub">Intermediate Class</div>
+      </div>
+      <span class="card-day d-int">第1日曜</span>
+    </div>
+    <div class="level-bar"><div class="level-dot on-int"></div><div class="level-dot on-int"></div><div class="level-dot on-int"></div></div>
+    <div class="card-desc">基礎ができている方向け。ステップとカービングを組み合わせたダンシングやトリックを磨きます。</div>
+    <div class="card-for"><b>こんな人に</b>：基礎ステップができる / ラインを作りたい</div>
+    <a class="btn btn-int" href="https://docs.google.com/forms/d/e/1FAIpQLSeuIvLiWKAN1qm0XBkgFFsqiDXvmxGaXNA9ZuBkapQjQnx_jw/viewform" target="_blank">このクラスに申し込む</a>
+  </div>
+
+  <!-- プライベート -->
+  <div class="card">
+    <div class="card-head">
+      <div class="icon i-prv"><i class="ti ti-user-star"></i></div>
+      <div>
+        <div class="card-title">プライベートレッスン</div>
+        <div class="card-sub">Private Lesson</div>
+      </div>
+      <span class="card-day d-prv">日程相談</span>
+    </div>
+    <div class="card-desc">あなただけのマンツーマン指導。目標やレベルに合わせて、内容も日程も個別に組み立てます。</div>
+    <div class="card-for"><b>こんな人に</b>：集中して上達したい / 特定の目標がある</div>
+    <a class="btn btn-prv" href="https://docs.google.com/forms/d/e/1FAIpQLScXlIHjU5v3TM1GGGQJWM_vpQXeipFXoEB4F9PuOFw_gL3bTg/viewform" target="_blank">このクラスに申し込む</a>
+  </div>
+
+  <!-- 開催カレンダー -->
+  <div class="section-h"><i class="ti ti-calendar"></i> 開催カレンダー</div>
+  <div class="cal">
+    <div class="cal-month" id="cal-month"></div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <div class="cal-legend">
+      <div class="leg"><span class="leg-dot" style="background:#378ADD"></span>完全初心者(第3日)</div>
+      <div class="leg"><span class="leg-dot" style="background:#639922"></span>初級(第2日)</div>
+      <div class="leg"><span class="leg-dot" style="background:#EF9F27"></span>中級(第1日)</div>
+    </div>
+  </div>
+
+  <div class="info-note"><i class="ti ti-info-circle"></i> 各レッスンは12:00〜14:00開催。参加費3,000円（回数券5回12,500円）。雨天時は前日または当日朝に連絡します。</div>
+
+  <div class="foot">
+    ご不明な点は<a href="https://www.instagram.com/" target="_blank">Instagram</a>のDMからお気軽に<br>
+    © Longboard Lesson Tokyo
+  </div>
+
+</div>
+
+<script>
+// 開催カレンダーを生成（当月＋翌月）
+function nthSunday(year, month, n){
+  let d=new Date(year,month,1),cnt=0;
+  while(true){if(d.getDay()===0)cnt++;if(cnt===n)break;d.setDate(d.getDate()+1);}
+  return d.getDate();
+}
+
+function buildCalendar(){
+  const now=new Date();
+  const year=now.getFullYear(), month=now.getMonth();
+  document.getElementById('cal-month').textContent=year+'年 '+(month+1)+'月';
+
+  const first=nthSunday(year,month,1); // 中級
+  const second=nthSunday(year,month,2); // 初級
+  const third=nthSunday(year,month,3); // 完全初心者
+
+  const dows=['日','月','火','水','木','金','土'];
+  const grid=document.getElementById('cal-grid');
+  let html='';
+  dows.forEach(d=>html+=`<div class="cal-dow">${d}</div>`);
+
+  const firstDay=new Date(year,month,1).getDay();
+  const daysInMonth=new Date(year,month+1,0).getDate();
+
+  for(let i=0;i<firstDay;i++) html+=`<div></div>`;
+
+  for(let day=1;day<=daysInMonth;day++){
+    const dow=new Date(year,month,day).getDay();
+    let dot='',cls='cal-day';
+    if(dow===0) cls+=' sun';
+    if(day===first){dot='<span class="cal-dot" style="background:#EF9F27"></span>';cls+=' has-lesson';}
+    else if(day===second){dot='<span class="cal-dot" style="background:#639922"></span>';cls+=' has-lesson';}
+    else if(day===third){dot='<span class="cal-dot" style="background:#378ADD"></span>';cls+=' has-lesson';}
+    html+=`<div class="${cls}">${day}${dot}</div>`;
+  }
+  grid.innerHTML=html;
+}
+buildCalendar();
+</script>
+</body>
+</html>
