@@ -36,6 +36,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .level-dot.on-beg{background:#378ADD}
 .level-dot.on-elm{background:#639922}
 .level-dot.on-int{background:#EF9F27}
+.slot-wrap{margin-bottom:12px}
+.slot-bar{height:8px;border-radius:4px;background:#e5e3db;overflow:hidden;margin-bottom:5px}
+.slot-fill{height:100%;border-radius:4px;width:0;transition:width .5s}
+.slot-text{font-size:12px;color:#5F5E5A;display:flex;align-items:center;gap:4px}
+.slot-full{color:#c0392b;font-weight:600}
+.slot-few{color:#d97706;font-weight:500}
 .btn{display:block;width:100%;text-align:center;text-decoration:none;padding:12px;border-radius:10px;font-weight:600;font-size:15px;border:none;cursor:pointer}
 .btn-beg{background:#378ADD;color:#fff}
 .btn-elm{background:#639922;color:#fff}
@@ -77,7 +83,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
       <span class="card-day d-beg">第3日曜</span>
     </div>
-    <div class="level-bar"><div class="level-dot on-beg"></div><div class="level-dot"></div><div class="level-dot"></div></div>
+    <div class="slot-wrap" id="slot-beg">
+      <div class="slot-bar"><div class="slot-fill" id="fill-beg" style="background:#378ADD"></div></div>
+      <div class="slot-text" id="text-beg">空き状況を確認中...</div>
+    </div>
     <div class="card-desc">初めてロングボードに乗る方向け。ボードに立つところから、安全に基礎を体験します。</div>
     <div class="card-for"><b>こんな人に</b>：ロンスケ未経験 / 何から始めるか分からない</div>
     <a class="btn btn-beg" href="https://docs.google.com/forms/d/e/1FAIpQLScxhPl0Ini0NqwRPfx5xiJr11xMvDqVHcW3ddcL7qpzRXvA-g/viewform" target="_blank">このクラスに申し込む</a>
@@ -93,7 +102,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
       <span class="card-day d-elm">第2日曜</span>
     </div>
-    <div class="level-bar"><div class="level-dot on-elm"></div><div class="level-dot on-elm"></div><div class="level-dot"></div></div>
+    <div class="slot-wrap" id="slot-elm">
+      <div class="slot-bar"><div class="slot-fill" id="fill-elm" style="background:#639922"></div></div>
+      <div class="slot-text" id="text-elm">空き状況を確認中...</div>
+    </div>
     <div class="card-desc">完全初心者講習を卒業した方向け。基礎のステップとカービングをしっかり固めます。</div>
     <div class="card-for"><b>こんな人に</b>：一度講習を受けた / 基礎を固めたい</div>
     <a class="btn btn-elm" href="https://docs.google.com/forms/d/e/1FAIpQLSfTk0iIlwJO3mpL4Fmbzh5ZRT5LtSjHlb9oMnw2SApphbfIrQ/viewform" target="_blank">このクラスに申し込む</a>
@@ -109,7 +121,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
       <span class="card-day d-int">第1日曜</span>
     </div>
-    <div class="level-bar"><div class="level-dot on-int"></div><div class="level-dot on-int"></div><div class="level-dot on-int"></div></div>
+    <div class="slot-wrap" id="slot-int">
+      <div class="slot-bar"><div class="slot-fill" id="fill-int" style="background:#EF9F27"></div></div>
+      <div class="slot-text" id="text-int">空き状況を確認中...</div>
+    </div>
     <div class="card-desc">基礎ができている方向け。ステップとカービングを組み合わせたダンシングやトリックを磨きます。</div>
     <div class="card-for"><b>こんな人に</b>：基礎ステップができる / ラインを作りたい</div>
     <a class="btn btn-int" href="https://docs.google.com/forms/d/e/1FAIpQLSeuIvLiWKAN1qm0XBkgFFsqiDXvmxGaXNA9ZuBkapQjQnx_jw/viewform" target="_blank">このクラスに申し込む</a>
@@ -190,6 +205,71 @@ function buildCalendar(){
   grid.innerHTML=html;
 }
 buildCalendar();
+
+// ============================================================
+// 各クラスの残り枠を取得して表示
+// ============================================================
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzb6zTb87OrnmiffkBFSCA07et8o20EZui_RApQSWmshIcQi5XL4xhakUExhhMrDBon/exec';
+const CAPACITY = 5; // 各クラスの定員
+
+// 「7月5日」などの文字列を今年のDateに変換
+function parseLessonDate(str){
+  if(!str) return null;
+  const m = str.match(/(\d+)月(\d+)日/);
+  if(!m) return null;
+  return new Date(new Date().getFullYear(), parseInt(m[1])-1, parseInt(m[2]));
+}
+
+// 未来の申し込み（今後のレッスン）だけをカウント
+function countUpcoming(rows, dateField){
+  if(!rows) return 0;
+  const today=new Date(); today.setHours(0,0,0,0);
+  let count=0;
+  rows.forEach(r=>{
+    if((r['名前']||'').includes('小笠原')) return; // テスト回答を除外
+    const dateStr = r[dateField]||'';
+    const d = parseLessonDate(dateStr);
+    // 日付が読めない、または今日以降ならカウント
+    if(!d || d>=today) count++;
+  });
+  return count;
+}
+
+function updateSlot(cls, count){
+  const remain = Math.max(0, CAPACITY - count);
+  const pct = Math.min(100, (count/CAPACITY)*100);
+  const fill = document.getElementById('fill-'+cls);
+  const text = document.getElementById('text-'+cls);
+  if(!fill||!text) return;
+  fill.style.width = pct+'%';
+  if(remain===0){
+    text.innerHTML='<i class="ti ti-lock"></i> 満席です（キャンセル待ち）';
+    text.className='slot-text slot-full';
+    fill.style.background='#c0392b';
+  } else if(remain<=2){
+    text.innerHTML='<i class="ti ti-flame"></i> 残り'+remain+'枠（早めのお申し込みを）';
+    text.className='slot-text slot-few';
+  } else {
+    text.innerHTML='<i class="ti ti-users"></i> 残り'+remain+'枠 / 定員'+CAPACITY+'名';
+    text.className='slot-text';
+  }
+}
+
+async function loadSlots(){
+  try {
+    const res = await fetch(GAS_URL);
+    const data = await res.json();
+    updateSlot('beg', countUpcoming(data.beginner, '参加希望日'));
+    updateSlot('elm', countUpcoming(data.elementary, '参加希望日'));
+    updateSlot('int', countUpcoming(data.intermediate, '参加希望日・内容'));
+  } catch(e){
+    ['beg','elm','int'].forEach(c=>{
+      const t=document.getElementById('text-'+c);
+      if(t) t.textContent='空き状況の取得に失敗しました';
+    });
+  }
+}
+loadSlots();
 </script>
 </body>
 </html>
