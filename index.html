@@ -30,7 +30,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .d-prv{background:#EEEDFE;color:#534AB7}
 .card-desc{font-size:14px;color:#444441;margin-bottom:10px}
 .card-for{font-size:13px;color:#5F5E5A;background:#f5f4f0;border-radius:8px;padding:8px 10px;margin-bottom:12px}
-.card-for b{color:#1a1a18;font-weight:500}
+.card-for b{color:#1a1a18;font-weight:500;display:block;margin-bottom:3px}
 .level-bar{display:flex;gap:3px;margin-bottom:12px}
 .level-dot{height:4px;flex:1;border-radius:2px;background:#e5e3db}
 .level-dot.on-beg{background:#378ADD}
@@ -59,6 +59,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .cal-day.day-elm{background:#639922}
 .cal-day.day-int{background:#EF9F27;color:#412402}
 .cal-day.day-split{background:linear-gradient(135deg,#639922 0%,#639922 50%,#EF9F27 50%,#EF9F27 100%)}
+.cal-day.day-prv{background:#534AB7}
+.cal-day.day-prv::after{content:'';position:absolute;bottom:2px;width:4px;height:4px;border-radius:50%;background:#fff}
 .cal-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;justify-content:center}
 .leg{display:flex;align-items:center;gap:4px;font-size:11px;color:#5F5E5A}
 .leg-dot{width:10px;height:10px;border-radius:3px}
@@ -91,7 +93,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="slot-text" id="text-beg">空き状況を確認中...</div>
     </div>
     <div class="card-desc">初めてロングボードに乗る方向け。ボードに立つところから、安全に基礎を体験します。</div>
-    <div class="card-for"><b>こんな人に</b>：ロンスケ未経験 / 何から始めるか分からない</div>
+    <div class="card-for"><b>こんな人に</b>ロンスケ未経験 / 何から始めるか分からない</div>
     <a class="btn btn-beg" href="https://docs.google.com/forms/d/e/1FAIpQLScxhPl0Ini0NqwRPfx5xiJr11xMvDqVHcW3ddcL7qpzRXvA-g/viewform" target="_blank">このクラスに申し込む</a>
   </div>
 
@@ -110,7 +112,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="slot-text" id="text-elm">空き状況を確認中...</div>
     </div>
     <div class="card-desc">完全初心者講習を卒業した方向け。基礎のステップとカービングをしっかり固めます。</div>
-    <div class="card-for"><b>こんな人に</b>：一度講習を受けた / 基礎を固めたい</div>
+    <div class="card-for"><b>こんな人に</b>一度講習を受けた / 基礎を固めたい</div>
     <a class="btn btn-elm" href="https://docs.google.com/forms/d/e/1FAIpQLSfTk0iIlwJO3mpL4Fmbzh5ZRT5LtSjHlb9oMnw2SApphbfIrQ/viewform" target="_blank">このクラスに申し込む</a>
   </div>
 
@@ -129,7 +131,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="slot-text" id="text-int">空き状況を確認中...</div>
     </div>
     <div class="card-desc">基礎ができている方向け。ステップとカービングを組み合わせたダンシングやトリックを磨きます。</div>
-    <div class="card-for"><b>こんな人に</b>：基礎ステップができる / ラインを作りたい</div>
+    <div class="card-for"><b>こんな人に</b>基礎ステップができる / ラインを作りたい</div>
     <a class="btn btn-int" href="https://docs.google.com/forms/d/e/1FAIpQLSeuIvLiWKAN1qm0XBkgFFsqiDXvmxGaXNA9ZuBkapQjQnx_jw/viewform" target="_blank">このクラスに申し込む</a>
   </div>
 
@@ -144,7 +146,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <span class="card-day d-prv">日程相談</span>
     </div>
     <div class="card-desc">あなただけのマンツーマン指導。目標やレベルに合わせて、内容も日程も個別に組み立てます。</div>
-    <div class="card-for"><b>こんな人に</b>：集中して上達したい / 特定の目標がある</div>
+    <div class="card-for"><b>こんな人に</b>集中して上達したい / 特定の目標がある</div>
+    <a class="btn" style="background:#fff;border:1.5px solid #534AB7;color:#534AB7;margin-bottom:8px" href="https://longboardles-j57smav5.manus.space" target="_blank"><i class="ti ti-external-link" style="margin-right:4px"></i>詳しく見る（専用サイト）</a>
     <a class="btn btn-prv" href="https://docs.google.com/forms/d/e/1FAIpQLScXlIHjU5v3TM1GGGQJWM_vpQXeipFXoEB4F9PuOFw_gL3bTg/viewform" target="_blank">このクラスに申し込む</a>
   </div>
 
@@ -156,10 +159,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="cal-legend">
       <div class="leg"><span class="leg-dot" style="background:#378ADD"></span>完全初心者(第3日)</div>
       <div class="leg"><span class="leg-dot" style="background:linear-gradient(135deg,#639922 0%,#639922 50%,#EF9F27 50%,#EF9F27 100%)"></span>初級午前・中級午後(第1日)</div>
+      <div class="leg"><span class="leg-dot" style="background:#534AB7"></span>プライベート予定あり</div>
     </div>
   </div>
 
-  <div class="info-note"><i class="ti ti-info-circle"></i> 各レッスンは12:00〜14:00開催。参加費3,000円（回数券5回12,500円）。プライベートレッスンは1時間3,500円／2時間セット6,000円。雨天時は前日または当日朝に連絡します。</div>
+  <div class="info-note"><i class="ti ti-info-circle"></i>
+    <div>
+      各レッスンは12:00〜14:00開催。<br>
+      参加費3,000円（回数券5回12,500円）。<br>
+      プライベートレッスンは1時間3,500円／2時間セット6,000円。<br>
+      雨天時は前日または当日朝に連絡します。
+    </div>
+  </div>
 
   <div class="foot">
     ご不明な点は<a href="https://www.instagram.com/" target="_blank">Instagram</a>のDMからお気軽に<br>
@@ -174,6 +185,34 @@ function nthSunday(year, month, n){
   let d=new Date(year,month,1),cnt=0;
   while(true){if(d.getDay()===0)cnt++;if(cnt===n)break;d.setDate(d.getDate()+1);}
   return d.getDate();
+}
+
+// プライベート予定のCSV（管理者がスプレッドシートに追加した日付のみ反映）
+const PRIVATE_CALENDAR_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQrLvf3TUtV3DajEoJesIqoDQZenT2aiOjNVuRDp1emEaKStF222EJrl9I_8WK4mucddvrBVGJAKq08/pub?gid=718902752&single=true&output=csv';
+
+let privateDays = []; // 今月のプライベート予定日（数値の配列）
+
+async function loadPrivateDays(){
+  try{
+    const res = await fetch(PRIVATE_CALENDAR_CSV);
+    const text = await res.text();
+    const lines = text.trim().split('\n').slice(1); // ヘッダーを除く
+    const now = new Date();
+    const year=now.getFullYear(), month=now.getMonth();
+    privateDays = [];
+    lines.forEach(line=>{
+      const val = line.split(',')[0].replace(/"/g,'').trim();
+      if(!val) return;
+      // 「7/26」「2026/7/26」「7月26日」などに対応
+      let m = val.match(/(\d+)[\/月](\d+)/);
+      if(m){
+        const mo = parseInt(m[1])-1, d = parseInt(m[2]);
+        if(mo===month) privateDays.push(d);
+      }
+    });
+  }catch(e){
+    privateDays = [];
+  }
 }
 
 function buildCalendar(){
@@ -200,11 +239,17 @@ function buildCalendar(){
     if(dow===0) cls+=' sun';
     if(day===first){cls+=' has-lesson day-split';}
     else if(day===third){cls+=' has-lesson day-beg';}
+    else if(privateDays.includes(day)){cls+=' has-lesson day-prv';}
     html+=`<div class="${cls}">${day}</div>`;
   }
   grid.innerHTML=html;
 }
-buildCalendar();
+
+async function initCalendar(){
+  await loadPrivateDays();
+  buildCalendar();
+}
+initCalendar();
 
 // ============================================================
 // 各クラスの残り枠を取得して表示
