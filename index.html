@@ -187,18 +187,30 @@ function nthSunday(year, month, n){
   return d.getDate();
 }
 
+// カレンダーに表示する年月を計算（今月の第3日曜を過ぎていたら来月にする）
+function getDisplayedMonth(){
+  const now=new Date();
+  let year=now.getFullYear(), month=now.getMonth();
+  const thirdThisMonth = new Date(year, month, nthSunday(year, month, 3));
+  thirdThisMonth.setHours(23,59,59,999);
+  if(now > thirdThisMonth){
+    month += 1;
+    if(month > 11){ month = 0; year += 1; }
+  }
+  return {year, month};
+}
+
 // プライベート予定のCSV（管理者がスプレッドシートに追加した日付のみ反映）
 const PRIVATE_CALENDAR_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQrLvf3TUtV3DajEoJesIqoDQZenT2aiOjNVuRDp1emEaKStF222EJrl9I_8WK4mucddvrBVGJAKq08/pub?gid=718902752&single=true&output=csv';
 
-let privateDays = []; // 今月のプライベート予定日（数値の配列）
+let privateDays = []; // 表示月のプライベート予定日（数値の配列）
 
 async function loadPrivateDays(){
   try{
     const res = await fetch(PRIVATE_CALENDAR_CSV);
     const text = await res.text();
     const lines = text.trim().split('\n').slice(1); // ヘッダーを除く
-    const now = new Date();
-    const year=now.getFullYear(), month=now.getMonth();
+    const {year, month} = getDisplayedMonth();
     privateDays = [];
     lines.forEach(line=>{
       const val = line.split(',')[0].replace(/"/g,'').trim();
@@ -216,8 +228,8 @@ async function loadPrivateDays(){
 }
 
 function buildCalendar(){
-  const now=new Date();
-  const year=now.getFullYear(), month=now.getMonth();
+  const {year, month} = getDisplayedMonth();
+
   document.getElementById('cal-month').textContent=year+'年 '+(month+1)+'月';
 
   const first=nthSunday(year,month,1);  // 初級(午前)・中級(午後)
