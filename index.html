@@ -52,13 +52,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .cal-month{text-align:center;font-size:15px;font-weight:600;margin-bottom:12px}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
 .cal-dow{text-align:center;font-size:11px;color:#888780;padding:4px 0}
-.cal-day{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:13px;border-radius:8px;position:relative}
+.cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:13px;border-radius:8px;position:relative}
 .cal-day.sun{color:#c0392b}
-.cal-day.has-lesson{font-weight:600}
-.cal-dot{width:5px;height:5px;border-radius:50%;margin-top:2px}
+.cal-day.has-lesson{font-weight:600;color:#fff}
+.cal-day.day-beg{background:#378ADD}
+.cal-day.day-elm{background:#639922}
+.cal-day.day-int{background:#EF9F27;color:#412402}
+.cal-day.day-split{background:linear-gradient(135deg,#639922 0%,#639922 50%,#EF9F27 50%,#EF9F27 100%)}
 .cal-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;justify-content:center}
 .leg{display:flex;align-items:center;gap:4px;font-size:11px;color:#5F5E5A}
-.leg-dot{width:8px;height:8px;border-radius:50%}
+.leg-dot{width:10px;height:10px;border-radius:3px}
 .foot{text-align:center;font-size:12px;color:#888780;padding:1.5rem 0 0.5rem;line-height:1.8}
 .foot a{color:#534AB7;text-decoration:none}
 .info-note{background:#FAEEDA;color:#633806;border-radius:10px;padding:10px 12px;font-size:13px;margin-bottom:14px;display:flex;gap:6px;align-items:flex-start}
@@ -100,7 +103,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="card-title">初級レッスン</div>
         <div class="card-sub">Elementary Class</div>
       </div>
-      <span class="card-day d-elm">第2日曜</span>
+      <span class="card-day d-elm">第1日曜 午前</span>
     </div>
     <div class="slot-wrap" id="slot-elm">
       <div class="slot-bar"><div class="slot-fill" id="fill-elm" style="background:#639922"></div></div>
@@ -119,7 +122,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="card-title">中級レッスン</div>
         <div class="card-sub">Intermediate Class</div>
       </div>
-      <span class="card-day d-int">第1日曜</span>
+      <span class="card-day d-int">第1日曜 午後</span>
     </div>
     <div class="slot-wrap" id="slot-int">
       <div class="slot-bar"><div class="slot-fill" id="fill-int" style="background:#EF9F27"></div></div>
@@ -152,8 +155,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="cal-grid" id="cal-grid"></div>
     <div class="cal-legend">
       <div class="leg"><span class="leg-dot" style="background:#378ADD"></span>完全初心者(第3日)</div>
-      <div class="leg"><span class="leg-dot" style="background:#639922"></span>初級(第2日)</div>
-      <div class="leg"><span class="leg-dot" style="background:#EF9F27"></span>中級(第1日)</div>
+      <div class="leg"><span class="leg-dot" style="background:linear-gradient(135deg,#639922 0%,#639922 50%,#EF9F27 50%,#EF9F27 100%)"></span>初級午前・中級午後(第1日)</div>
     </div>
   </div>
 
@@ -179,9 +181,8 @@ function buildCalendar(){
   const year=now.getFullYear(), month=now.getMonth();
   document.getElementById('cal-month').textContent=year+'年 '+(month+1)+'月';
 
-  const first=nthSunday(year,month,1); // 中級
-  const second=nthSunday(year,month,2); // 初級
-  const third=nthSunday(year,month,3); // 完全初心者
+  const first=nthSunday(year,month,1);  // 初級(午前)・中級(午後)
+  const third=nthSunday(year,month,3);  // 完全初心者
 
   const dows=['日','月','火','水','木','金','土'];
   const grid=document.getElementById('cal-grid');
@@ -195,12 +196,11 @@ function buildCalendar(){
 
   for(let day=1;day<=daysInMonth;day++){
     const dow=new Date(year,month,day).getDay();
-    let dot='',cls='cal-day';
+    let cls='cal-day';
     if(dow===0) cls+=' sun';
-    if(day===first){dot='<span class="cal-dot" style="background:#EF9F27"></span>';cls+=' has-lesson';}
-    else if(day===second){dot='<span class="cal-dot" style="background:#639922"></span>';cls+=' has-lesson';}
-    else if(day===third){dot='<span class="cal-dot" style="background:#378ADD"></span>';cls+=' has-lesson';}
-    html+=`<div class="${cls}">${day}${dot}</div>`;
+    if(day===first){cls+=' has-lesson day-split';}
+    else if(day===third){cls+=' has-lesson day-beg';}
+    html+=`<div class="${cls}">${day}</div>`;
   }
   grid.innerHTML=html;
 }
