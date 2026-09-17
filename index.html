@@ -36,18 +36,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .level-dot.on-beg{background:#378ADD}
 .level-dot.on-elm{background:#639922}
 .level-dot.on-int{background:#EF9F27}
-.slot-wrap{margin-bottom:12px}
-.slot-bar{height:8px;border-radius:4px;background:#e5e3db;overflow:hidden;margin-bottom:5px}
-.slot-fill{height:100%;border-radius:4px;width:0;transition:width .5s}
-.slot-text{font-size:12px;color:#5F5E5A;display:flex;align-items:center;gap:4px}
-.slot-full{color:#c0392b;font-weight:600}
-.slot-few{color:#d97706;font-weight:500}
-.btn{display:block;width:100%;text-align:center;text-decoration:none;padding:12px;border-radius:10px;font-weight:600;font-size:15px;border:none;cursor:pointer}
-.btn-beg{background:#378ADD;color:#fff}
-.btn-elm{background:#639922;color:#fff}
-.btn-int{background:#EF9F27;color:#412402}
-.btn-prv{background:#534AB7;color:#fff}
+.price{display:flex;align-items:baseline;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.price-main{font-size:20px;font-weight:600;letter-spacing:-0.3px}
+.price-unit{font-size:12px;color:#888780}
+.price-note{font-size:12px;color:#5F5E5A;margin-left:auto}
+.cap{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:#5F5E5A;background:#f5f4f0;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.line-cta{background:#fff;border:0.5px solid #dddbd0;border-radius:16px;padding:1.25rem;margin-bottom:14px;text-align:center}
+.line-cta h2{font-size:17px;font-weight:600;margin-bottom:6px}
+.line-cta p{font-size:13px;color:#5F5E5A;margin-bottom:14px}
+.btn{display:block;width:100%;text-align:center;text-decoration:none;padding:14px;border-radius:10px;font-weight:600;font-size:15px;border:none;cursor:pointer}
+.btn-line{background:#06C755;color:#fff}
 .btn:active{opacity:.85}
+.steps{list-style:none;text-align:left;font-size:13px;color:#444441;margin-top:14px}
+.steps li{display:flex;gap:8px;margin-bottom:6px}
+.steps .n{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:#06C755;color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}
 .cal{background:#fff;border:0.5px solid #dddbd0;border-radius:16px;padding:1.25rem;margin-bottom:14px}
 .cal-month{text-align:center;font-size:15px;font-weight:600;margin-bottom:12px}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
@@ -86,15 +88,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="card-title">完全初心者講習</div>
         <div class="card-sub">Beginners Class</div>
       </div>
-      <span class="card-day d-beg">第3日曜 12:00〜14:00</span>
+      <span class="card-day d-beg">第2日曜 12:00〜14:00</span>
     </div>
-    <div class="slot-wrap" id="slot-beg">
-      <div class="slot-bar"><div class="slot-fill" id="fill-beg" style="background:#378ADD"></div></div>
-      <div class="slot-text" id="text-beg">空き状況を確認中...</div>
+    <div class="price">
+      <span class="price-main">3,000円</span><span class="price-unit">／1回</span>
+      <span class="price-note">単発で参加できます</span>
     </div>
     <div class="card-desc">初めてロングボードに乗る方向け。ボードに立つところから、安全に基礎を体験します。</div>
     <div class="card-for"><b>こんな人に</b>ロンスケ未経験 / 何から始めるか分からない</div>
-    <a class="btn btn-beg" href="https://docs.google.com/forms/d/e/1FAIpQLScxhPl0Ini0NqwRPfx5xiJr11xMvDqVHcW3ddcL7qpzRXvA-g/viewform" target="_blank">このクラスに申し込む</a>
   </div>
 
   <!-- 初級 -->
@@ -105,15 +106,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="card-title">初級レッスン</div>
         <div class="card-sub">Elementary Class</div>
       </div>
-      <span class="card-day d-elm">第1日曜 10:00〜12:00</span>
+      <span class="card-day d-elm">第1・第3日曜 10:00〜12:00</span>
     </div>
-    <div class="slot-wrap" id="slot-elm">
-      <div class="slot-bar"><div class="slot-fill" id="fill-elm" style="background:#639922"></div></div>
-      <div class="slot-text" id="text-elm">空き状況を確認中...</div>
+    <div class="price">
+      <span class="price-main">月5,000円</span><span class="price-unit">／月2回</span>
+      <span class="price-note">1回あたり2,500円</span>
     </div>
-    <div class="card-desc">完全初心者講習を卒業した方向け。基礎のステップとカービングをしっかり固めます。</div>
+    <div class="cap"><i class="ti ti-users"></i>定員5名</div>
+    <div class="card-desc">完全初心者講習を卒業した方向け。基礎のステップとカービングをしっかり固めます。月2回の月謝制で、続けて通いながら固めていきます。</div>
     <div class="card-for"><b>こんな人に</b>一度講習を受けた / 基礎を固めたい</div>
-    <a class="btn btn-elm" href="https://docs.google.com/forms/d/e/1FAIpQLSfTk0iIlwJO3mpL4Fmbzh5ZRT5LtSjHlb9oMnw2SApphbfIrQ/viewform" target="_blank">このクラスに申し込む</a>
   </div>
 
   <!-- 中級 -->
@@ -124,15 +125,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="card-title">中級レッスン</div>
         <div class="card-sub">Intermediate Class</div>
       </div>
-      <span class="card-day d-int">第1日曜 13:00〜15:00</span>
+      <span class="card-day d-int">第1・第3日曜 13:00〜15:00</span>
     </div>
-    <div class="slot-wrap" id="slot-int">
-      <div class="slot-bar"><div class="slot-fill" id="fill-int" style="background:#EF9F27"></div></div>
-      <div class="slot-text" id="text-int">空き状況を確認中...</div>
+    <div class="price">
+      <span class="price-main">月5,000円</span><span class="price-unit">／月2回</span>
+      <span class="price-note">1回あたり2,500円</span>
     </div>
+    <div class="cap"><i class="ti ti-users"></i>定員5名</div>
     <div class="card-desc">基礎ができている方向け。ステップとカービングを組み合わせたダンシングやトリックを磨きます。</div>
     <div class="card-for"><b>こんな人に</b>基礎ステップができる / ラインを作りたい</div>
-    <a class="btn btn-int" href="https://docs.google.com/forms/d/e/1FAIpQLSeuIvLiWKAN1qm0XBkgFFsqiDXvmxGaXNA9ZuBkapQjQnx_jw/viewform" target="_blank">このクラスに申し込む</a>
   </div>
 
   <!-- プライベート -->
@@ -145,9 +146,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       </div>
       <span class="card-day d-prv">日程相談</span>
     </div>
+    <div class="price">
+      <span class="price-main">3,500円</span><span class="price-unit">／1時間</span>
+      <span class="price-note">2時間セット 6,000円</span>
+    </div>
     <div class="card-desc">あなただけのマンツーマン指導。目標やレベルに合わせて、内容も日程も個別に組み立てます。</div>
     <div class="card-for"><b>こんな人に</b>集中して上達したい / 特定の目標がある</div>
-    <a class="btn btn-prv" href="https://docs.google.com/forms/d/e/1FAIpQLScXlIHjU5v3TM1GGGQJWM_vpQXeipFXoEB4F9PuOFw_gL3bTg/viewform" target="_blank">このクラスに申し込む</a>
+  </div>
+
+  <!-- 申し込み導線 -->
+  <div class="line-cta">
+    <h2>お申し込み・ご相談</h2>
+    <p>すべて公式LINEで受け付けています。<br>クラス選びに迷う場合もそのままご相談ください。</p>
+    <a class="btn btn-line" href="https://lin.ee/nvP1tJu" target="_blank"><i class="ti ti-brand-line"></i> 友だち追加して申し込む</a>
+    <ul class="steps">
+      <li><span class="n">1</span><span>友だち追加して、希望のクラスを送る</span></li>
+      <li><span class="n">2</span><span>初回の持ち物と集合場所をご案内します</span></li>
+      <li><span class="n">3</span><span>参加する日曜の前日までに、出欠をひとことください</span></li>
+    </ul>
   </div>
 
   <!-- 開催カレンダー -->
@@ -156,25 +172,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="cal-month" id="cal-month"></div>
     <div class="cal-grid" id="cal-grid"></div>
     <div class="cal-legend">
-      <div class="leg"><span class="leg-dot" style="background:#378ADD"></span>完全初心者(第3日)</div>
-      <div class="leg"><span class="leg-dot" style="background:linear-gradient(135deg,#639922 0%,#639922 50%,#EF9F27 50%,#EF9F27 100%)"></span>初級午前・中級午後(第1日)</div>
+      <div class="leg"><span class="leg-dot" style="background:#378ADD"></span>完全初心者(第2日)</div>
+      <div class="leg"><span class="leg-dot" style="background:linear-gradient(135deg,#639922 0%,#639922 50%,#EF9F27 50%,#EF9F27 100%)"></span>初級午前・中級午後(第1・第3日)</div>
       <div class="leg"><span class="leg-dot" style="background:#534AB7"></span>プライベート予定あり</div>
     </div>
   </div>
 
   <div class="info-note"><i class="ti ti-info-circle"></i>
     <div>
-      完全初心者講習：12:00〜14:00開催。<br>
-      初級レッスン：10:00〜12:00開催。<br>
-      中級レッスン：13:00〜15:00開催。<br>
-      参加費3,000円（回数券5回12,500円）。<br>
-      プライベートレッスンは1時間3,500円／2時間セット6,000円。<br>
-      ※夏季や雨天の場合は時間に変更の可能性があるため、前日や当日の朝に改めて開催時間をお知らせします。
+      完全初心者講習：第2日曜 12:00〜14:00。単発3,000円。<br>
+      初級レッスン：第1・第3日曜 10:00〜12:00。月謝5,000円・定員5名。<br>
+      中級レッスン：第1・第3日曜 13:00〜15:00。月謝5,000円・定員5名。<br>
+      プライベートレッスン：1時間3,500円／2時間セット6,000円。<br>
+      <b>雨天の場合はオンラインレッスンに振り替えます。</b>お休みにはならないので、月2回は必ず受けられます。<br>
+      ※夏季は時間に変更の可能性があるため、前日や当日の朝に改めて開催時間をお知らせします。
     </div>
   </div>
 
   <div class="foot">
     ご不明な点は<a href="https://www.instagram.com/oga.motion" target="_blank">Instagram</a>のDMからお気軽に<br>
+    <a href="./tokushoho.html">特定商取引法に基づく表記</a><br>
     © Longboard Lesson Tokyo
   </div>
 
@@ -234,7 +251,8 @@ function buildCalendar(){
   document.getElementById('cal-month').textContent=year+'年 '+(month+1)+'月';
 
   const first=nthSunday(year,month,1);  // 初級(午前)・中級(午後)
-  const third=nthSunday(year,month,3);  // 完全初心者
+  const second=nthSunday(year,month,2); // 完全初心者
+  const third=nthSunday(year,month,3);  // 初級(午前)・中級(午後)
 
   const dows=['日','月','火','水','木','金','土'];
   const grid=document.getElementById('cal-grid');
@@ -250,8 +268,8 @@ function buildCalendar(){
     const dow=new Date(year,month,day).getDay();
     let cls='cal-day';
     if(dow===0) cls+=' sun';
-    if(day===first){cls+=' has-lesson day-split';}
-    else if(day===third){cls+=' has-lesson day-beg';}
+    if(day===first||day===third){cls+=' has-lesson day-split';}
+    else if(day===second){cls+=' has-lesson day-beg';}
     else if(privateDays.includes(day)){cls+=' has-lesson day-prv';}
     html+=`<div class="${cls}">${day}</div>`;
   }
@@ -263,71 +281,6 @@ async function initCalendar(){
   buildCalendar();
 }
 initCalendar();
-
-// ============================================================
-// 各クラスの残り枠を取得して表示
-// ============================================================
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzb6zTb87OrnmiffkBFSCA07et8o20EZui_RApQSWmshIcQi5XL4xhakUExhhMrDBon/exec';
-const CAPACITY = 5; // 各クラスの定員
-
-// 「7月5日」などの文字列を今年のDateに変換
-function parseLessonDate(str){
-  if(!str) return null;
-  const m = str.match(/(\d+)月(\d+)日/);
-  if(!m) return null;
-  return new Date(new Date().getFullYear(), parseInt(m[1])-1, parseInt(m[2]));
-}
-
-// 未来の申し込み（今後のレッスン）だけをカウント
-function countUpcoming(rows, dateField){
-  if(!rows) return 0;
-  const today=new Date(); today.setHours(0,0,0,0);
-  let count=0;
-  rows.forEach(r=>{
-    if((r['名前']||'').includes('小笠原')) return; // テスト回答を除外
-    const dateStr = r[dateField]||'';
-    const d = parseLessonDate(dateStr);
-    // 日付が読めない、または今日以降ならカウント
-    if(!d || d>=today) count++;
-  });
-  return count;
-}
-
-function updateSlot(cls, count){
-  const remain = Math.max(0, CAPACITY - count);
-  const pct = Math.min(100, (count/CAPACITY)*100);
-  const fill = document.getElementById('fill-'+cls);
-  const text = document.getElementById('text-'+cls);
-  if(!fill||!text) return;
-  fill.style.width = pct+'%';
-  if(remain===0){
-    text.innerHTML='<i class="ti ti-lock"></i> 満席です（キャンセル待ち）';
-    text.className='slot-text slot-full';
-    fill.style.background='#c0392b';
-  } else if(remain<=2){
-    text.innerHTML='<i class="ti ti-flame"></i> 残り'+remain+'枠（早めのお申し込みを）';
-    text.className='slot-text slot-few';
-  } else {
-    text.innerHTML='<i class="ti ti-users"></i> 残り'+remain+'枠 / 定員'+CAPACITY+'名';
-    text.className='slot-text';
-  }
-}
-
-async function loadSlots(){
-  try {
-    const res = await fetch(GAS_URL);
-    const data = await res.json();
-    updateSlot('beg', countUpcoming(data.beginner, '参加希望日'));
-    updateSlot('elm', countUpcoming(data.elementary, '参加希望日'));
-    updateSlot('int', countUpcoming(data.intermediate, '参加希望日・内容'));
-  } catch(e){
-    ['beg','elm','int'].forEach(c=>{
-      const t=document.getElementById('text-'+c);
-      if(t) t.textContent='空き状況の取得に失敗しました';
-    });
-  }
-}
-loadSlots();
 </script>
 </body>
 </html>
